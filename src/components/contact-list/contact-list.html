@@ -1,0 +1,11 @@
+<!-- <input type="text" name="value" ng-model="value">
+
+<ul ng-repeat="contact in contactListController.contacts | filter: value">
+  <li>{{contact}}</li>
+</ul> -->
+
+<input type="text" name="value" ng-model="value">
+
+<ul ng-repeat="contact in contactDetailController.contacts | filter: value">
+  <li><a ui-sref="app.contactDetail{{name:contact.name}}"> {{contact.name}}</a></li>
+</ul>
