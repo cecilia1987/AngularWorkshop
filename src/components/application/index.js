@@ -5,20 +5,23 @@ import config from './config';
 import errorHandling from './error-handling';
 import applicationState from './application-state';
 import httpProvider from './http-provider';
+import addressBookService from 'components/contact-list/address-book-service';
 import contactListComponent from 'components/contact-list/index';
 import contactDetailComponent from 'components/contact-detail/index';
+import roboHashDirective from 'components/directives/robo-hash-directive';
+
 
 const dependencies = [
     'ngCookies',
     welcomeComponent.name,
     contactListComponent.name,
-    contactDetailComponent.name
+    contactDetailComponent.name,
+    roboHashDirective.name
 ];
 
 export default angular
     .module('Application', dependencies)
-    .config(config)
+    .service('AddressBookService',addressBookService).config(config)
     .config(applicationState)
     .provider('http', httpProvider)
     .run(errorHandling);
-

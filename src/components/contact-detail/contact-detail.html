@@ -25,14 +25,17 @@
 
         <p>
             <label for="">Email</label><br/>
-            <input type="email" name='email' ng-model="contactDetailController.contact.email" required>
+            <!-- <input type="email" name='email' ng-model="contactDetailController.contact.email" required> -->
             <div ng-show="contactForm.email.$error.required || contactForm.email.$error.touched">
                 <span >Email required</span>
             </div>
         </p>
-
         <p>
-            <input type="submit" value="Save" ng-disabled="contactForm.$invalid">
+            <robo-email email='contactDetailController.contact.email'/>
+        </p>
+        <p>
+            <input type="submit" value="Save" ng-disabled="contactForm.$invalid"
+            ng-click="contactDetailController.saveOrEdit()">
         </p>
     </form>
 </div>
